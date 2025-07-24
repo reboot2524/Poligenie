@@ -14,3 +14,4 @@ vertexai
 langchain_google_vertexai
 langchain-community
 langgraph
+chromadb
