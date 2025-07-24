@@ -12,3 +12,4 @@ google-generativeai
 google-ai-generativelanguage
 vertexai
 langchain_google_vertexai
+langchain-community
