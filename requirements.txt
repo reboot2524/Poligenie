@@ -7,7 +7,7 @@ google-generativeai
 langchain-community
 langchain-openai 
 python-dotenv
-google-ai-generativelanguage==0.2.0
-vertexai
 google-generativeai
+google-ai-generativelanguage
+vertexai
 langchain_google_vertexai
