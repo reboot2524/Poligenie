@@ -3,11 +3,9 @@ import shutil
 import tempfile
 from pathlib import Path
 from typing import TypedDict, Optional, List
-
 import streamlit as st
 from streamlit_chat import message  # For chat history display
-
-from langchain_chroma import Chroma
+from langchain_community.vectorstores import Chroma
 from langchain_community.document_loaders import PyPDFLoader
 
 from langchain_google_vertexai import VertexAIEmbeddings
