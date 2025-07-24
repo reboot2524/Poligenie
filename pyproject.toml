@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=75.3.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Poligenie"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langchain_chroma",
+    "langchain",
+    "langgraph",
+    "langmem",
+    "langchain_community",
+    "langchain_google_vertexai",
+    "langchain-chroma",
+    "pypdf",
+    "ipywidgets",
+    "typing_extensions",
+    "google-generativeai",
+    "streamlit",
+    "streamlit-chat",
+    "dotenv",
+    "setuptools","PyPDF2"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit==4.2.0",
+    "ruff==0.8.4",
+    "black[jupyter]==23.9.1",
+    "notebook==7.2.2",
+    "ipython==8.27.0",
+    "ipykernel==6.29.5",
+    "aiohttp==3.11.13",
+]
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+exclude = ["*.ipynb"]
+fix = true
+target-version = "py310"
+
+[tool.ruff.lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
+select = ["E4", "E7", "E9", "F", "I"]
+ignore = []
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[tool.isort]
+src_paths = ["src", "tests"]
+
+[tool.pydocstyle]
+convention = "google"
+add-ignore = "D104,D418"
+
+[tool.mypy]
+files = ["src", "tests"]
+plugins = ["pydantic.mypy"]
+disallow_untyped_defs = true
+pretty = true
+ignore_missing_imports = true
+overrides = [
+    {module = "tests.*", disallow_untyped_defs = false},
+    {module = "pytz.*", ignore_missing_imports = true},
+    {module = "yaml.*", ignore_missing_imports = true},
+    {module = "scipy.*", ignore_missing_imports = true},
+    {module = "sklearn.*", ignore_missing_imports = true},
+    {module = "joblib.*", ignore_missing_imports = true},
+    {module = "cerberus.*", ignore_missing_imports = true},
+    {module = "gcp_shared_utils.*", ignore_missing_imports = true},
+]
+
+
+[tool.setuptools]
+include-package-data = true
+
+# https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+[tool.setuptools.packages.find]
+where = ["src"]
